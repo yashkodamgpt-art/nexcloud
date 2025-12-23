@@ -1,0 +1,32 @@
+{
+    "$schema": "https://harbor.dev/schema/harbor.json",
+    "name": "harbor-cloud",
+    "version": "0.1.0",
+    "framework": "nextjs",
+    "build": {
+        "command": "npm run build",
+        "output": ".next"
+    },
+    "start": {
+        "command": "npm start",
+        "port": 3000
+    },
+    "database": {
+        "type": "sqlite",
+        "migrations": "prisma/migrations",
+        "commands": [
+            "npx prisma generate",
+            "npx prisma db push"
+        ]
+    },
+    "ignore": [
+        "node_modules",
+        ".git",
+        ".env.local",
+        "*.log"
+    ],
+    "hooks": {
+        "preBuild": "npx prisma generate",
+        "preStart": "npx prisma db push"
+    }
+}
