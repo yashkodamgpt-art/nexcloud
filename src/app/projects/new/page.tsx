@@ -110,9 +110,12 @@ export default function NewProjectPage() {
                     <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-4 mb-6 text-red-400">
                         {error}
                         {error.includes("connect") && (
-                            <Link href="/api/auth/signin/github" className="block mt-2 text-blue-400 underline">
+                            <a
+                                href="/api/auth/signin/github?callbackUrl=/projects/new"
+                                className="block mt-2 text-blue-400 underline"
+                            >
                                 Connect GitHub →
-                            </Link>
+                            </a>
                         )}
                     </div>
                 )}
