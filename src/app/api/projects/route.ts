@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
             data: {
                 name,
                 subdomain,
-                userId: session.user.id,
+                userId: session.user.id!,
                 githubRepoUrl,
                 githubRepoName,
                 githubBranch: githubBranch || "main",
